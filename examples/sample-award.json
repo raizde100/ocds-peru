@@ -1,0 +1,106 @@
+{
+  "uri": "https://seace.gob.pe/api/v1/releases/2024/procurement-001",
+  "publishedDate": "2024-10-20T00:00:00Z",
+  "version": "1.1",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publisher": {
+    "name": "OSCE - Organismo Supervisor de las Contrataciones del Estado",
+    "identifier": {
+      "scheme": "RUC",
+      "id": "20131370739",
+      "legalName": "Organismo Supervisor de las Contrataciones del Estado"
+    }
+  },
+  "releases": [
+    {
+      "ocid": "ocds-213czf-PE-2024-LP-001",
+      "id": "PE-2024-LP-001-award",
+      "date": "2024-10-20T14:30:00Z",
+      "tag": ["award"],
+      "initiationType": "tender",
+      "language": "es",
+      "buyer": {
+        "name": "Ministerio de Educación del Perú",
+        "identifier": {
+          "scheme": "RUC",
+          "id": "20131370018",
+          "legalName": "Ministerio de Educación"
+        },
+        "roles": ["buyer"]
+      },
+      "awards": [
+        {
+          "id": "AWARD-001-2024",
+          "title": "Adjudicación - Equipos Informáticos Educativos",
+          "description": "Adjudicación de la buena pro para la adquisición de equipos informáticos educativos",
+          "status": "active",
+          "date": "2024-10-20T14:30:00Z",
+          "value": {
+            "amount": 2380000.00,
+            "currency": "PEN"
+          },
+          "suppliers": [
+            {
+              "name": "Tecnología Educativa Peru S.A.C.",
+              "identifier": {
+                "scheme": "RUC",
+                "id": "20601234567",
+                "legalName": "Tecnología Educativa Peru Sociedad Anónima Cerrada"
+              },
+              "address": {
+                "streetAddress": "Av. Javier Prado Este 4200",
+                "locality": "Lima",
+                "region": "Lima",
+                "postalCode": "15048",
+                "countryName": "Peru"
+              },
+              "contactPoint": {
+                "name": "Juan Carlos Mendoza",
+                "email": "jmendoza@tecnedu.pe",
+                "telephone": "+51 1 987-654-321"
+              },
+              "roles": ["supplier"]
+            }
+          ],
+          "items": [
+            {
+              "id": "001",
+              "description": "Computadoras portátiles educativas",
+              "quantity": 1000,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad"
+              }
+            },
+            {
+              "id": "002",
+              "description": "Tablets educativas",
+              "quantity": 500,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad"
+              }
+            },
+            {
+              "id": "003",
+              "description": "Proyectores multimedia",
+              "quantity": 200,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad"
+              }
+            }
+          ],
+          "contractPeriod": {
+            "startDate": "2024-11-01T00:00:00Z",
+            "endDate": "2025-04-30T23:59:59Z",
+            "durationInDays": 180
+          }
+        }
+      ]
+    }
+  ]
+}

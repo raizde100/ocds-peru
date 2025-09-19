@@ -1,0 +1,654 @@
+{
+  "title": "OCDS Peru Schema",
+  "description": "Schema for Open Contracting Data Standard implementation in Peru",
+  "type": "object",
+  "properties": {
+    "uri": {
+      "title": "Package URI",
+      "description": "A URI identifying this package",
+      "type": "string",
+      "format": "uri"
+    },
+    "publishedDate": {
+      "title": "Published Date",
+      "description": "The date that this package was published",
+      "type": "string",
+      "format": "date-time"
+    },
+    "releases": {
+      "title": "Releases",
+      "description": "An array of releases containing contracting process information",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/release"
+      }
+    },
+    "publisher": {
+      "title": "Publisher",
+      "description": "Information about the publisher of this data",
+      "$ref": "#/definitions/organization"
+    },
+    "license": {
+      "title": "License",
+      "description": "A license document",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "description": "The version of OCDS used",
+      "type": "string",
+      "enum": ["1.1"]
+    }
+  },
+  "required": ["uri", "publishedDate", "version"],
+  "definitions": {
+    "release": {
+      "title": "Release",
+      "description": "A contracting process release",
+      "type": "object",
+      "properties": {
+        "ocid": {
+          "title": "Open Contracting ID",
+          "description": "A globally unique identifier for this contracting process",
+          "type": "string"
+        },
+        "id": {
+          "title": "Release ID",
+          "description": "Unique identifier for this release",
+          "type": "string"
+        },
+        "date": {
+          "title": "Release Date",
+          "description": "Date of this release",
+          "type": "string",
+          "format": "date-time"
+        },
+        "tag": {
+          "title": "Release Tag",
+          "description": "Tags to indicate the stage of the contracting process",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "planning",
+              "tender",
+              "tenderAmendment",
+              "tenderUpdate",
+              "tenderCancellation",
+              "award",
+              "awardUpdate",
+              "awardCancellation",
+              "contract",
+              "contractUpdate",
+              "contractAmendment",
+              "implementation",
+              "implementationUpdate",
+              "contractTermination",
+              "compiled"
+            ]
+          }
+        },
+        "initiationType": {
+          "title": "Initiation Type",
+          "description": "String specifying the type of initiation process used for this contract",
+          "type": "string",
+          "enum": ["tender"]
+        },
+        "buyer": {
+          "title": "Buyer",
+          "description": "The buyer organization",
+          "$ref": "#/definitions/organization"
+        },
+        "planning": {
+          "title": "Planning",
+          "description": "Information from the planning phase",
+          "$ref": "#/definitions/planning"
+        },
+        "tender": {
+          "title": "Tender",
+          "description": "Information about the tender stage",
+          "$ref": "#/definitions/tender"
+        },
+        "awards": {
+          "title": "Awards",
+          "description": "Information about awards made",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/award"
+          }
+        },
+        "contracts": {
+          "title": "Contracts",
+          "description": "Information about contracts signed",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/contract"
+          }
+        },
+        "language": {
+          "title": "Language",
+          "description": "Language of the data using ISO 639-1",
+          "type": "string",
+          "default": "es"
+        }
+      },
+      "required": ["ocid", "id", "date", "tag"]
+    },
+    "organization": {
+      "title": "Organization",
+      "description": "A party (organization)",
+      "type": "object",
+      "properties": {
+        "identifier": {
+          "title": "Organization Identifier",
+          "description": "Primary identifier for this organization",
+          "$ref": "#/definitions/identifier"
+        },
+        "name": {
+          "title": "Organization Name",
+          "description": "Name of the organization",
+          "type": "string"
+        },
+        "address": {
+          "title": "Address",
+          "description": "Organization address",
+          "$ref": "#/definitions/address"
+        },
+        "contactPoint": {
+          "title": "Contact Point",
+          "description": "Contact information",
+          "$ref": "#/definitions/contactPoint"
+        },
+        "roles": {
+          "title": "Organization Roles",
+          "description": "Party roles in the contracting process",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["buyer", "procuringEntity", "supplier", "tenderer", "funder", "enquirer", "payer", "payee", "reviewBody", "interestedParty"]
+          }
+        }
+      }
+    },
+    "identifier": {
+      "title": "Identifier",
+      "description": "Organization or other party identifier",
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "title": "Scheme",
+          "description": "Organization register scheme (for Peru: RUC, DNI, etc.)",
+          "type": "string"
+        },
+        "id": {
+          "title": "ID",
+          "description": "Organization identifier",
+          "type": "string"
+        },
+        "legalName": {
+          "title": "Legal Name",
+          "description": "Legal name of the organization",
+          "type": "string"
+        },
+        "uri": {
+          "title": "URI",
+          "description": "URI for this identifier",
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": ["id"]
+    },
+    "address": {
+      "title": "Address",
+      "description": "An address",
+      "type": "object",
+      "properties": {
+        "streetAddress": {
+          "title": "Street Address",
+          "description": "Street address",
+          "type": "string"
+        },
+        "locality": {
+          "title": "Locality",
+          "description": "Locality (city/town)",
+          "type": "string"
+        },
+        "region": {
+          "title": "Region",
+          "description": "Region or state",
+          "type": "string"
+        },
+        "postalCode": {
+          "title": "Postal Code",
+          "description": "Postal code",
+          "type": "string"
+        },
+        "countryName": {
+          "title": "Country Name",
+          "description": "Country name",
+          "type": "string",
+          "default": "Peru"
+        }
+      }
+    },
+    "contactPoint": {
+      "title": "Contact Point",
+      "description": "Contact information",
+      "type": "object",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "Contact person name",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "description": "Email address",
+          "type": "string",
+          "format": "email"
+        },
+        "telephone": {
+          "title": "Telephone",
+          "description": "Telephone number",
+          "type": "string"
+        },
+        "faxNumber": {
+          "title": "Fax Number",
+          "description": "Fax number",
+          "type": "string"
+        },
+        "url": {
+          "title": "URL",
+          "description": "Website URL",
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "planning": {
+      "title": "Planning",
+      "description": "Information from the planning phase",
+      "type": "object",
+      "properties": {
+        "rationale": {
+          "title": "Rationale",
+          "description": "Rationale for the procurement",
+          "type": "string"
+        },
+        "budget": {
+          "title": "Budget",
+          "description": "Budget information",
+          "$ref": "#/definitions/budget"
+        }
+      }
+    },
+    "budget": {
+      "title": "Budget",
+      "description": "Budget information",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "title": "Budget Amount",
+          "description": "Budget amount",
+          "$ref": "#/definitions/value"
+        },
+        "description": {
+          "title": "Budget Description",
+          "description": "Budget description",
+          "type": "string"
+        }
+      }
+    },
+    "tender": {
+      "title": "Tender",
+      "description": "Information about the tender stage",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Tender ID",
+          "description": "Unique identifier for this tender",
+          "type": "string"
+        },
+        "title": {
+          "title": "Tender Title",
+          "description": "Tender title",
+          "type": "string"
+        },
+        "description": {
+          "title": "Tender Description",
+          "description": "Tender description",
+          "type": "string"
+        },
+        "status": {
+          "title": "Tender Status",
+          "description": "Current status of the tender",
+          "type": "string",
+          "enum": ["planning", "planned", "active", "cancelled", "unsuccessful", "complete", "withdrawn"]
+        },
+        "procurementMethod": {
+          "title": "Procurement Method",
+          "description": "Procurement method used",
+          "type": "string",
+          "enum": ["open", "selective", "limited", "direct"]
+        },
+        "procurementMethodDetails": {
+          "title": "Procurement Method Details",
+          "description": "Additional details about procurement method",
+          "type": "string"
+        },
+        "value": {
+          "title": "Tender Value",
+          "description": "Total estimated value of the tender",
+          "$ref": "#/definitions/value"
+        },
+        "tenderPeriod": {
+          "title": "Tender Period",
+          "description": "Period when tender is open",
+          "$ref": "#/definitions/period"
+        },
+        "enquiryPeriod": {
+          "title": "Enquiry Period",
+          "description": "Period for enquiries",
+          "$ref": "#/definitions/period"
+        },
+        "awardPeriod": {
+          "title": "Award Period",
+          "description": "Period for awards",
+          "$ref": "#/definitions/period"
+        },
+        "numberOfTenderers": {
+          "title": "Number of Tenderers",
+          "description": "Number of unique tenderers",
+          "type": "integer"
+        },
+        "tenderers": {
+          "title": "Tenderers",
+          "description": "Organizations that submitted tenders",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/organization"
+          }
+        },
+        "items": {
+          "title": "Items",
+          "description": "Items to be procured",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/item"
+          }
+        },
+        "minValue": {
+          "title": "Minimum Value",
+          "description": "Minimum value threshold",
+          "$ref": "#/definitions/value"
+        },
+        "procuringEntity": {
+          "title": "Procuring Entity",
+          "description": "Organization conducting the procurement",
+          "$ref": "#/definitions/organization"
+        }
+      }
+    },
+    "award": {
+      "title": "Award",
+      "description": "Information about an award",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Award ID",
+          "description": "Unique identifier for this award",
+          "type": "string"
+        },
+        "title": {
+          "title": "Award Title",
+          "description": "Award title",
+          "type": "string"
+        },
+        "description": {
+          "title": "Award Description",
+          "description": "Award description",
+          "type": "string"
+        },
+        "status": {
+          "title": "Award Status",
+          "description": "Current status of the award",
+          "type": "string",
+          "enum": ["pending", "active", "cancelled", "unsuccessful"]
+        },
+        "date": {
+          "title": "Award Date",
+          "description": "Date of award",
+          "type": "string",
+          "format": "date-time"
+        },
+        "value": {
+          "title": "Award Value",
+          "description": "Total value of the award",
+          "$ref": "#/definitions/value"
+        },
+        "suppliers": {
+          "title": "Suppliers",
+          "description": "Winning suppliers",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/organization"
+          }
+        },
+        "items": {
+          "title": "Items",
+          "description": "Items awarded",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/item"
+          }
+        },
+        "contractPeriod": {
+          "title": "Contract Period",
+          "description": "Period for contract delivery",
+          "$ref": "#/definitions/period"
+        }
+      }
+    },
+    "contract": {
+      "title": "Contract",
+      "description": "Information about a contract",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Contract ID",
+          "description": "Unique identifier for this contract",
+          "type": "string"
+        },
+        "awardID": {
+          "title": "Award ID",
+          "description": "ID of related award",
+          "type": "string"
+        },
+        "title": {
+          "title": "Contract Title",
+          "description": "Contract title",
+          "type": "string"
+        },
+        "description": {
+          "title": "Contract Description",
+          "description": "Contract description",
+          "type": "string"
+        },
+        "status": {
+          "title": "Contract Status",
+          "description": "Current status of the contract",
+          "type": "string",
+          "enum": ["pending", "active", "cancelled", "terminated"]
+        },
+        "period": {
+          "title": "Contract Period",
+          "description": "Contract period",
+          "$ref": "#/definitions/period"
+        },
+        "value": {
+          "title": "Contract Value",
+          "description": "Total value of the contract",
+          "$ref": "#/definitions/value"
+        },
+        "items": {
+          "title": "Items",
+          "description": "Items contracted",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/item"
+          }
+        },
+        "dateSigned": {
+          "title": "Date Signed",
+          "description": "Date contract was signed",
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "value": {
+      "title": "Value",
+      "description": "Financial value",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "title": "Amount",
+          "description": "Amount as a number",
+          "type": ["number", "null"]
+        },
+        "currency": {
+          "title": "Currency",
+          "description": "Currency using ISO 4217",
+          "type": "string",
+          "default": "PEN"
+        }
+      }
+    },
+    "period": {
+      "title": "Period",
+      "description": "Time period",
+      "type": "object",
+      "properties": {
+        "startDate": {
+          "title": "Start Date",
+          "description": "Start date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "endDate": {
+          "title": "End Date",
+          "description": "End date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "maxExtentDate": {
+          "title": "Maximum Extent Date",
+          "description": "Maximum possible end date",
+          "type": "string",
+          "format": "date-time"
+        },
+        "durationInDays": {
+          "title": "Duration in Days",
+          "description": "Maximum duration in days",
+          "type": "integer"
+        }
+      }
+    },
+    "item": {
+      "title": "Item",
+      "description": "Item to be procured",
+      "type": "object",
+      "properties": {
+        "id": {
+          "title": "Item ID",
+          "description": "Unique identifier for this item",
+          "type": "string"
+        },
+        "description": {
+          "title": "Item Description",
+          "description": "Description of the item",
+          "type": "string"
+        },
+        "classification": {
+          "title": "Classification",
+          "description": "Item classification",
+          "$ref": "#/definitions/classification"
+        },
+        "additionalClassifications": {
+          "title": "Additional Classifications",
+          "description": "Additional classifications",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/classification"
+          }
+        },
+        "quantity": {
+          "title": "Quantity",
+          "description": "Number of units",
+          "type": "integer"
+        },
+        "unit": {
+          "title": "Unit",
+          "description": "Unit of measurement",
+          "$ref": "#/definitions/unit"
+        }
+      }
+    },
+    "classification": {
+      "title": "Classification",
+      "description": "Classification using various coding systems",
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "title": "Classification Scheme",
+          "description": "Classification scheme used",
+          "type": "string"
+        },
+        "id": {
+          "title": "Classification ID",
+          "description": "Classification code",
+          "type": "string"
+        },
+        "description": {
+          "title": "Classification Description",
+          "description": "Classification description",
+          "type": "string"
+        },
+        "uri": {
+          "title": "Classification URI",
+          "description": "URI for this classification",
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "unit": {
+      "title": "Unit",
+      "description": "Unit of measurement",
+      "type": "object",
+      "properties": {
+        "scheme": {
+          "title": "Unit Scheme",
+          "description": "Unit scheme used",
+          "type": "string"
+        },
+        "id": {
+          "title": "Unit ID",
+          "description": "Unit identifier",
+          "type": "string"
+        },
+        "name": {
+          "title": "Unit Name",
+          "description": "Unit name",
+          "type": "string"
+        },
+        "value": {
+          "title": "Unit Value",
+          "description": "Unit value information",
+          "$ref": "#/definitions/value"
+        }
+      }
+    }
+  }
+}
