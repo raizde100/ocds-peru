@@ -1,0 +1,175 @@
+{
+  "uri": "https://seace.gob.pe/api/v1/releases/2024/procurement-001",
+  "publishedDate": "2024-09-19T00:00:00Z",
+  "version": "1.1",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publisher": {
+    "name": "OSCE - Organismo Supervisor de las Contrataciones del Estado",
+    "identifier": {
+      "scheme": "RUC",
+      "id": "20131370739",
+      "legalName": "Organismo Supervisor de las Contrataciones del Estado"
+    },
+    "address": {
+      "streetAddress": "Av. Gregorio Escobedo 710",
+      "locality": "Lima",
+      "region": "Lima",
+      "postalCode": "15046",
+      "countryName": "Peru"
+    },
+    "contactPoint": {
+      "name": "SEACE Portal",
+      "email": "seace@osce.gob.pe",
+      "telephone": "+51 1 203-9700",
+      "url": "https://seace.gob.pe"
+    }
+  },
+  "releases": [
+    {
+      "ocid": "ocds-213czf-PE-2024-LP-001",
+      "id": "PE-2024-LP-001-tender",
+      "date": "2024-09-19T10:00:00Z",
+      "tag": ["tender"],
+      "initiationType": "tender",
+      "language": "es",
+      "buyer": {
+        "name": "Ministerio de Educación del Perú",
+        "identifier": {
+          "scheme": "RUC",
+          "id": "20131370018",
+          "legalName": "Ministerio de Educación"
+        },
+        "address": {
+          "streetAddress": "Calle El Comercio 193",
+          "locality": "Lima",
+          "region": "Lima",
+          "postalCode": "15046",
+          "countryName": "Peru"
+        },
+        "contactPoint": {
+          "name": "Oficina de Abastecimiento",
+          "email": "abastecimiento@minedu.gob.pe",
+          "telephone": "+51 1 615-5800"
+        },
+        "roles": ["buyer"]
+      },
+      "planning": {
+        "rationale": "Adquisición de equipos informáticos para mejorar la infraestructura tecnológica educativa en colegios públicos del país, conforme al Plan Nacional de Educación Digital 2024-2026.",
+        "budget": {
+          "amount": {
+            "amount": 2500000.00,
+            "currency": "PEN"
+          },
+          "description": "Presupuesto asignado para la modernización tecnológica educativa, fuente de financiamiento: Recursos Ordinarios"
+        }
+      },
+      "tender": {
+        "id": "LP-001-2024-MINEDU",
+        "title": "Licitación Pública para la Adquisición de Equipos Informáticos Educativos",
+        "description": "Proceso de selección para la adquisición de computadoras portátiles, tablets y proyectores multimedia destinados a instituciones educativas públicas del nivel primario y secundario a nivel nacional.",
+        "status": "active",
+        "procurementMethod": "open",
+        "procurementMethodDetails": "Licitación Pública conforme a la Ley de Contrataciones del Estado y su Reglamento",
+        "value": {
+          "amount": 2450000.00,
+          "currency": "PEN"
+        },
+        "tenderPeriod": {
+          "startDate": "2024-09-19T09:00:00Z",
+          "endDate": "2024-10-15T17:00:00Z",
+          "durationInDays": 26
+        },
+        "enquiryPeriod": {
+          "startDate": "2024-09-19T09:00:00Z",
+          "endDate": "2024-10-08T17:00:00Z"
+        },
+        "awardPeriod": {
+          "startDate": "2024-10-16T09:00:00Z",
+          "endDate": "2024-10-30T17:00:00Z"
+        },
+        "numberOfTenderers": 0,
+        "procuringEntity": {
+          "name": "Ministerio de Educación del Perú - Oficina General de Administración",
+          "identifier": {
+            "scheme": "RUC",
+            "id": "20131370018",
+            "legalName": "Ministerio de Educación"
+          },
+          "roles": ["procuringEntity"]
+        },
+        "items": [
+          {
+            "id": "001",
+            "description": "Computadoras portátiles educativas con especificaciones técnicas mínimas: procesador Intel Core i5 o equivalente, 8GB RAM, 256GB SSD, pantalla 14 pulgadas",
+            "classification": {
+              "scheme": "CPV",
+              "id": "30213000",
+              "description": "Ordenadores portátiles"
+            },
+            "additionalClassifications": [
+              {
+                "scheme": "UNSPSC",
+                "id": "43211500",
+                "description": "Computadoras portátiles"
+              }
+            ],
+            "quantity": 1000,
+            "unit": {
+              "scheme": "UNCEFACT",
+              "id": "H87",
+              "name": "unidad"
+            }
+          },
+          {
+            "id": "002",
+            "description": "Tablets educativas con pantalla de 10 pulgadas, 4GB RAM, 64GB almacenamiento, sistema operativo Android o iOS",
+            "classification": {
+              "scheme": "CPV",
+              "id": "30231300",
+              "description": "Tabletas"
+            },
+            "additionalClassifications": [
+              {
+                "scheme": "UNSPSC",
+                "id": "43211901",
+                "description": "Tabletas"
+              }
+            ],
+            "quantity": 500,
+            "unit": {
+              "scheme": "UNCEFACT",
+              "id": "H87",
+              "name": "unidad"
+            }
+          },
+          {
+            "id": "003",
+            "description": "Proyectores multimedia con resolución mínima 1920x1080 (Full HD), 3000 lúmenes, conectividad HDMI y USB",
+            "classification": {
+              "scheme": "CPV",
+              "id": "38652000",
+              "description": "Proyectores"
+            },
+            "additionalClassifications": [
+              {
+                "scheme": "UNSPSC",
+                "id": "45121504",
+                "description": "Proyectores de video"
+              }
+            ],
+            "quantity": 200,
+            "unit": {
+              "scheme": "UNCEFACT",
+              "id": "H87",
+              "name": "unidad"
+            }
+          }
+        ],
+        "minValue": {
+          "amount": 2000000.00,
+          "currency": "PEN"
+        }
+      }
+    }
+  ]
+}

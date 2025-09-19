@@ -1,0 +1,17 @@
+{
+  "name": "ocds-peru",
+  "version": "1.0.0",
+  "description": "Open Contracting Data Standard (OCDS) implementation for Peru's public procurement system",
+  "ocdsVersion": "1.1",
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2025-09-19T01:03:10.401Z",
+  "license": "MIT",
+  "keywords": [
+    "ocds",
+    "peru",
+    "procurement",
+    "contracting",
+    "transparency",
+    "seace"
+  ]
+}

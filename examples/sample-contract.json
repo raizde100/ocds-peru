@@ -1,0 +1,111 @@
+{
+  "uri": "https://seace.gob.pe/api/v1/releases/2024/procurement-001",
+  "publishedDate": "2024-11-05T00:00:00Z",
+  "version": "1.1",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "publisher": {
+    "name": "OSCE - Organismo Supervisor de las Contrataciones del Estado",
+    "identifier": {
+      "scheme": "RUC",
+      "id": "20131370739",
+      "legalName": "Organismo Supervisor de las Contrataciones del Estado"
+    }
+  },
+  "releases": [
+    {
+      "ocid": "ocds-213czf-PE-2024-LP-001",
+      "id": "PE-2024-LP-001-contract",
+      "date": "2024-11-05T09:15:00Z",
+      "tag": ["contract"],
+      "initiationType": "tender",
+      "language": "es",
+      "buyer": {
+        "name": "Ministerio de Educación del Perú",
+        "identifier": {
+          "scheme": "RUC",
+          "id": "20131370018",
+          "legalName": "Ministerio de Educación"
+        },
+        "roles": ["buyer"]
+      },
+      "contracts": [
+        {
+          "id": "CONTRATO-001-2024-MINEDU",
+          "awardID": "AWARD-001-2024",
+          "title": "Contrato para Adquisición de Equipos Informáticos Educativos",
+          "description": "Contrato firmado para la adquisición y entrega de equipos informáticos educativos conforme a las especificaciones técnicas establecidas en las bases",
+          "status": "active",
+          "period": {
+            "startDate": "2024-11-05T00:00:00Z",
+            "endDate": "2025-04-30T23:59:59Z",
+            "durationInDays": 175
+          },
+          "value": {
+            "amount": 2380000.00,
+            "currency": "PEN"
+          },
+          "items": [
+            {
+              "id": "001",
+              "description": "Computadoras portátiles educativas con especificaciones técnicas aprobadas, incluyendo garantía de 3 años y soporte técnico",
+              "classification": {
+                "scheme": "CPV",
+                "id": "30213000",
+                "description": "Ordenadores portátiles"
+              },
+              "quantity": 1000,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad",
+                "value": {
+                  "amount": 1800.00,
+                  "currency": "PEN"
+                }
+              }
+            },
+            {
+              "id": "002",
+              "description": "Tablets educativas de 10 pulgadas con aplicaciones educativas preinstaladas y funda protectora",
+              "classification": {
+                "scheme": "CPV",
+                "id": "30231300",
+                "description": "Tabletas"
+              },
+              "quantity": 500,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad",
+                "value": {
+                  "amount": 650.00,
+                  "currency": "PEN"
+                }
+              }
+            },
+            {
+              "id": "003",
+              "description": "Proyectores multimedia Full HD con accesorios de instalación y manual en español",
+              "classification": {
+                "scheme": "CPV",
+                "id": "38652000",
+                "description": "Proyectores"
+              },
+              "quantity": 200,
+              "unit": {
+                "scheme": "UNCEFACT",
+                "id": "H87",
+                "name": "unidad",
+                "value": {
+                  "amount": 1150.00,
+                  "currency": "PEN"
+                }
+              }
+            }
+          ],
+          "dateSigned": "2024-11-05T09:15:00Z"
+        }
+      ]
+    }
+  ]
+}
